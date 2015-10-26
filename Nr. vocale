@@ -1,0 +1,19 @@
+#include <iostream>
+#include <string.h>
+
+using namespace std;
+
+int main()
+{
+  char s[51];
+  int i, nr = 0;
+  
+  cout << "Sirul este: ";
+  cin.get(s, 51);
+  
+  for (i = 0; i < strlen(s); i++)
+    if (strchr("aeiouAEIOU", s[i]))
+      nr++;
+  
+  cout << "Textul contine " << nr << " vocale";
+}
