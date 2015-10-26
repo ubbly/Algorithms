@@ -1,0 +1,16 @@
+#include <iostream>
+#include <string.h>
+using namespace std;
+int main()
+{
+  char s[101];
+  int i,nr=0;
+  cout<<"sirul este: ";
+  cin.get(s,101);
+  for(i=0;i<strlen(s);i++)
+ if(strchr("0123456789", s[i]))
+  nr++;
+ 
+  cout<<"exista "<<nr<<" cifre.";
+  
+}
