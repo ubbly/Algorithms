@@ -1,0 +1,32 @@
+//a) afis pe ecran pct unu cate unu sub forma (x,y)
+//b)sa se afis pe urm linie a ecran nr pct situate pe axa ox
+//c)sa se scrie cate 1 pe linie toate pct care au aumbele coord pare
+
+#include <iostream>
+using namespace std;
+int main()
+{struct punct
+{int x,y;};
+punct p[20];
+ int n,i,nr=0;
+ 
+ cout<<"n=";cin>>n;
+ for(i=1;i<=n;i++){
+cout<<" abscisa pct "<<i<<" este ";
+cin>>p[i].x;
+cout<<" ordonata pct "<<i<<" este ";
+cin>>p[i].y;}
+
+for(i=1;i<=n;i++)
+cout<<"("<<p[i].x<<","<<p[i].y<<")"<<endl;
+
+for(i=1;i<=n;i++)
+if(p[i].y==0)
+nr++;
+cout<<"suma "<<nr<<" pct situate pe axa ox"<<endl;
+
+for(i<1;i<=n;i++)
+if(p[i].x%2==0 && p[i].y%2==0)
+cout<<"("<<p[i].x<<";"<<p[i].y<<")"<<endl;
+
+return 0; }
