@@ -4,11 +4,13 @@ using namespace std;
 
 int main()
 {
-    int map[5][5] = {{1, 0, 0, 0, 0},
-                     {1, 0, 0, 0, 0},
-                     {1, 0, 0, 0, 0},
-                     {0, 0, 0, 0, 1},
-                     {0, 0, 0, 0, 1}};
+    int map[6][6] = {{1, 0, 0, 0, 0, 1},
+                     {1, 0, 0, 0, 0, 0},
+                     {1, 0, 0, 0, 0, 1},
+                     {0, 0, 0, 0, 1, 0},
+                     {0, 0, 0, 0, 1, 0},
+                     {0, 1, 0, 0, 0, 0}};
+    int mapLength = 6;
                      
     int currentRow, currentCol;  
     cin >> currentRow >> currentCol;
@@ -45,7 +47,7 @@ int main()
         {
             int lastRow = currentRow;
             
-            for (int i = currentRow + 1; i <= 4; i++)
+            for (int i = currentRow + 1; i < mapLength; i++)
             {
                 if (map[i][currentCol] == 1)
                 {
@@ -85,7 +87,7 @@ int main()
         {
             int lastCol = currentCol;
             
-            for (int j = currentCol + 1; j <= 4; j++)
+            for (int j = currentCol + 1; j < mapLength; j++)
             {
                 if (map[currentRow][j] == 1)
                 {
@@ -102,9 +104,9 @@ int main()
             currentCol = lastCol;
         }
         
-        for (int i = 0; i <= 4; i++)
+        for (int i = 0; i < mapLength; i++)
         {
-            for (int j = 0; j <= 4; j++)
+            for (int j = 0; j < mapLength; j++)
             {
                 cout << map[i][j] << " ";
             }
