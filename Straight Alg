@@ -1,0 +1,115 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int map[5][5] = {{1, 0, 0, 0, 0},
+                     {1, 0, 0, 0, 0},
+                     {1, 0, 0, 0, 0},
+                     {0, 0, 0, 0, 1},
+                     {0, 0, 0, 0, 1}};
+                     
+    int currentRow, currentCol;  
+    cin >> currentRow >> currentCol;
+    
+    map[currentRow][currentCol] = 1;
+    
+    bool done = false;
+    while (!done)
+    {
+        int movingDirection;
+        cin >> movingDirection;
+        
+        if (movingDirection == 1) // UP
+        {
+            int lastRow = currentRow;
+            
+            for (int i = currentRow - 1; i >= 0; i--)
+            {
+                if (map[i][currentCol] == 1)
+                {
+                    lastRow = i + 1;
+                    break;
+                }
+                else
+                {
+                    map[i][currentCol] = 1;
+                    lastRow = i;
+                }
+            }
+            
+            currentRow = lastRow;
+        }
+        else if (movingDirection == 2) // DOWN
+        {
+            int lastRow = currentRow;
+            
+            for (int i = currentRow + 1; i <= 4; i++)
+            {
+                if (map[i][currentCol] == 1)
+                {
+                    lastRow = i - 1;
+                    break;
+                }
+                else
+                {
+                    map[i][currentCol] = 1;
+                    lastRow = i;
+                }
+            }
+            
+            currentRow = lastRow;
+        }
+        else if (movingDirection == 3) // LEFT
+        {
+            int lastCol = currentCol;
+            
+            for (int j = currentCol - 1; j >= 0; j--)
+            {
+                if (map[currentRow][j] == 1)
+                {
+                    lastCol = j + 1;
+                    break;
+                }
+                else
+                {
+                    map[currentRow][j] = 1;
+                    lastCol = j;
+                }
+            }
+            
+            currentCol = lastCol;
+        }
+        else if (movingDirection == 4) // RIGHT
+        {
+            int lastCol = currentCol;
+            
+            for (int j = currentCol + 1; j <= 4; j++)
+            {
+                if (map[currentRow][j] == 1)
+                {
+                    lastCol = j - 1;
+                    break;
+                }
+                else
+                {
+                    map[currentRow][j] = 1;
+                    lastCol = j;
+                }
+            }
+            
+            currentCol = lastCol;
+        }
+        
+        for (int i = 0; i <= 4; i++)
+        {
+            for (int j = 0; j <= 4; j++)
+            {
+                cout << map[i][j] << " ";
+            }
+            
+            cout << "\n";
+        }
+    }
+}
